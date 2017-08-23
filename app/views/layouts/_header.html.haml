@@ -17,6 +17,8 @@
 				.js-userNav.userNav
 					- if user_signed_in?
 						.nav-profile.nav-action.account-action{ style: "background-image:  url('#{current_user.avatar.url}')"  }
+						-if current_user.store.nil
+							
 						.menuNav
 							.menuNav-arrow
 							.menuNav-scrim
