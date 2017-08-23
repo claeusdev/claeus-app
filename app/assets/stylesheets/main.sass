@@ -1,0 +1,413 @@
+html
+	box-sizing: border-box
+
+*,
+*:before,
+*:after 
+	box-sizing: inherit
+
+*
+	margin: 0
+	padding: 0
+	font-family: 'Source Sans Pro', sans-serif
+	font-size: 16px
+	line-height: 1.5
+	color: $main-font
+	a
+		text-decoration: none
+		font-weight: 500
+		&:hover
+			color: $red
+
+.fa
+	font-family: 'Proxima Nova', sans-serif
+body 
+	height: 100%
+	margin: 0
+	padding: 0
+	padding-top: 70px
+	text-rendering: optimizeLegibility
+	font-weight: 500
+	-moz-osx-font-smoothing: grayscale
+	-webkit-font-smoothing: antialiased
+	color: #525252
+	width: 100%
+	@media screen and (max-width: 540px)
+		width: 100%
+		overflow-x: hidden
+	@media screen and (device-aspect-ratio: 40/71)
+		width: 100%
+
+#content
+	min-height: 60vh
+	overflow-x: hidden
+	width: 100%
+	
+.bg-white
+	background-color: #fff
+
+img
+	max-width: 100%
+	vertical-align: middle
+
+.center
+	max-width: 50%
+	margin: 0 auto
+	padding: 20px 7.5%
+
+.headline
+	font-size: 42px
+	font-weight: 300
+	line-height: 52px
+	margin-bottom: 4px
+	text-align: center
+// TYpography
+
+section
+	margin: 20px auto
+
+h1, h2, h3, h4, h5, h24, h32 
+	color: #525252
+	font-weight: 100
+	line-height: 1em
+	margin: .67em 0 .4em
+	display: block
+
+h2 
+	color: #525252
+	font-size: 3em
+	line-height: 1.2
+	-webkit-transition: font-size 0.2s ease-in-out
+	transition: font-size 0.2s ease-in-out
+	@media only screen and (max-width: 540px)
+	h2 
+		font-size: 2em
+
+.section-header
+	text-align: center
+	display: block
+	padding: 0 0 24px
+	font-size: 18px
+	font-weight: 700
+	text-transform: uppercase
+	letter-spacing: 3px
+	color: #525252
+	@media only screen and (max-width: 540px)
+		padding-bottom: 24px
+
+.section
+	min-height: 40vw
+	.page
+		text-align: left
+	
+.wrapper
+	box-sizing: border-box
+	margin: 0 auto
+	max-width: 1280px
+	min-width: 310px
+	padding: 0 20px
+	position: relative
+	width: 100%
+	
+	@media only screen and (max-width: 985px)
+		padding: 0 20px
+	@media only screen and (max-width: 540px)
+		padding: 0 15px
+
+
+.page-header,
+.heading,
+.sub-heading
+	text-align: center
+
+.page-header
+	font-size: 40px
+	font-weight: bold
+	line-height: 1.22
+	
+.page-header-content
+	text-align: center
+	padding: 80px 0
+	position: relative
+	z-index: 2
+	width: 100%
+
+.heading
+	margin-bottom: 10px
+	font-size: 32px
+	font-weight: 400
+	line-height: 1.22
+
+.sub-heading
+	margin-bottom: 12px
+	color: #636366
+	font-size: 1.25em
+	line-height: 1.22
+
+.search
+	padding: 20px 0
+	width: 100%
+	margin-bottom: 20px
+	text-align: center
+
+.pad-20
+	padding: 20px 0
+
+.large-card
+	min-height: 50vw
+.tiny-card
+	min-height: 20vw
+// FORMS
+
+.form-group	
+	margin-bottom: 1rem
+	label
+		text-align: left
+	
+.form
+	width: 100%
+	margin: 0 auto
+	padding: 25px 7.5% 20px
+	.input
+		padding: 10px
+		height: 48px
+		font-size: 16px
+		font-weight: 400
+		line-height: 21px
+		border: 1px solid #e2e2e5
+		border-top-right-radius: 0
+		border-bottom-right-radius: 0
+
+	.input-large
+		width: 300px
+	@media screen and (max-width: 375px)
+		display: flex
+		padding: 0
+		margin: 10px auto 10px
+		.input
+			width: 70%
+		.button
+			width: 30%
+
+// Collection Grid
+.collection
+	width: 100%
+	overflow-y: auto
+	display: flex
+	-webkit-box-orient: vertical
+	-webkit-box-direction: normal
+	flex-direction: horizontal
+	flex-wrap: wrap
+	background-color: white
+
+.collection-container
+	display: flex
+	-ms-flex-flow: column nowrap
+	flex-flow: column nowrap
+	height: 100%
+	position: relative
+	margin: 2% 2% 0
+	box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15)
+
+
+.form-divider 
+	background-color: #ebebeb
+	height: 2px
+	position: relative
+	width: 100%
+	margin: 48px 0 55px
+
+.form-note
+	margin-bottom: 20px
+
+.form-input
+	width: 100%
+	font-size: 16px
+	font-weight: 400
+	line-height: 21px
+	padding: 14px
+	background-color: rgba(255,255,255,.5)
+	border: 1px solid #e2e2e5
+	border-top-right-radius: 0
+	border-bottom-right-radius: 0
+
+.sign-up-form, .login-form
+	margin-top: 44px
+
+// Box Has a card like exposure
+.box
+	background-color: white
+	margin: 0 auto
+	max-width: 680px
+	padding: 47px 50px 60px
+	padding: 47px 6vw 60px
+	text-align: center
+	
+	@media screen and (max-width: 985px)
+		margin: 0 -20px
+		max-width: inherit
+		margin: 50px auto 60px !important
+	@media screen and (max-width: 540px)
+		padding: 30px 20px 50px
+		margin: 0 -8px !important
+
+	h2
+		color: #595959
+		font-size: 42px
+		margin: 29px 0 0 0
+		@media only screen and (max-width: 540px)
+			font-size: 24px
+
+	p
+		color: #878787
+		font-weight: 30
+		font-size: 24p
+		margin: 4px auto 
+		max-width: 470p
+
+		@media only screen and (max-width: 540px)
+			font-size: 20px
+			max-width: 330px
+	
+
+	.panel
+		border: 1px solid tint($claeusRed, 50%)
+		background: white
+		border-radius: 3px
+		padding: 40px
+		margin: 20px 0
+		min-height: 1px
+		@media screen and (max-width: 991px)
+			text-align: center
+			padding: 10px 10px 20px 10px !important
+
+// Tabs
+.tab-group
+	display: block
+	white-space: nowrap
+	background-color: rgba(0,0,0,0.05)
+	border-radius: 50px
+
+.tabs
+	display: block
+	margin: 0
+	transition: all 0.2s ease-in-out
+	font-weight: 300
+	margin: 12px 0
+	@media only screen and (max-width: 400px)
+		font-size: 14px
+
+	@media only screen and (max-width: 540px)
+		font-size: 16px
+	@media only screen and (max-width: 985px)
+		display: block
+		position: relative
+		right: inherit
+
+	.tab 
+		padding: 0 10px
+		color: #999999
+		cursor: pointer
+		display: inline-block
+		white-space: nowrap
+		height: 25px
+		font-weight: 500	
+		transition: color 0.2s ease-in-out
+		@media only screen and (max-width: 540px)
+			display: block
+			float: left
+			
+	.tab.active
+		border-bottom: 2px solid $claeusRed
+
+
+// Modules are cardlike
+
+.module
+	margin-top: 8px
+	margin-bottom: 8px
+	background-color: #fff
+	border: 1px solid #e2e2e5
+	border-radius: 3px
+	
+
+
+//Pill
+
+.pill
+	display: inline-block
+	margin-bottom: 10px
+	padding: 3px 12px 2px
+	background-color: $claeusRed
+	border-radius: 10px
+	color: #fff
+	font-size: 12px
+	font-weight: 600
+	line-height: 12px
+	letter-spacing: .86px
+
+
+// BULLETS
+.bullets 
+	$base-line-height: 1.5em !default
+	$action-color: #477DCA !default
+	$dark-gray: #333 !default
+	$base-font-color: $dark-gray !default
+	$icon-bullet-size: 3.5em
+
+	display: flex
+	flex-wrap: wrap
+	margin: 1em
+	margin-bottom: $base-line-height
+	overflow: auto
+	padding: 0
+
+	.bullet 
+		flex-basis: 20em
+		flex-grow: 1
+
+
+	.bullet-icon 
+		background: $action-color
+		border-radius: 50%
+		float: left
+		height: $icon-bullet-size
+		padding: $icon-bullet-size / 4
+		width: $icon-bullet-size
+
+
+	// .bullet-icon-1 
+	// 	background: $action-color
+
+
+	// .bullet-icon-2 
+	// 	background: adjust-hue($action-color, -50%)
+
+	// .bullet-icon-3 
+	// 	background: adjust-hue($action-color, -140%)
+
+
+	.bullet-content 
+		margin-bottom: 2em
+		margin-left: $icon-bullet-size * 1.4
+
+
+	h2
+		border-bottom: 1px solid transparentize($base-font-color, 0.8)
+		display: inline-block
+		font-size: $icon-bullet-size / 2.5
+		margin: 0 0 ($icon-bullet-size / 6) 0
+		padding-top: $icon-bullet-size / 7
+
+
+	li 
+		list-style: none
+
+
+	p 
+		color: $base-font-color
+		line-height: $base-line-height
+
+
+	img 
+		max-width: 100%

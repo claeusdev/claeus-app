@@ -1,0 +1,11 @@
+.page
+	%article.white
+		.profile-info
+			.profile-name= @user.full_name
+			.profile-joined= "Joined in " + @user.created_at.strftime('%B %Y')
+		
+		.section
+			- if current_user.store.present?
+				= button_to "Manage your store", store_dashboard_path(current_user.store), method: :get, class: "button button-sexy"
+			- else 
+				= button_to "Start selling", sell_path, method: :get, class: "button button-sexy"

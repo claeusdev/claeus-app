@@ -1,0 +1,9 @@
+
+.page
+	%article.white
+		.section
+			.section-header Your notifications
+			.wrapper
+				- @notifications.each do |n|
+					.notification
+						= "#{n.actor.username}" " #{n.action}"

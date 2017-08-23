@@ -1,0 +1,52 @@
+.mainNav
+	.mainNav-layout.wrapper
+		.mainNav-tabs.mainNavTab#logo
+			= link_to root_path do
+				Claeus
+		
+		
+		.navUserSection
+			.mainNav-userSection
+				- unless current_page?root_path
+					.mainNav-desktopSearchContainer
+						.mainNavSearch-container
+							= form_with( url: search_path, method: :get, local: true) do |f|
+								= f.text_field :q, class: "mainNavSearch js-globalSearchInput", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
+						
+				.nav-action.show-search
+				.js-userNav.userNav
+					- if user_signed_in?
+						.nav-profile.nav-action.account-action{ style: "background-image:  url('#{current_user.avatar.url}')"  }
+						.menuNav
+							.menuNav-arrow
+							.menuNav-scrim
+							
+							.menuNav-list
+								= link_to "#{current_user.username}", user_path(current_user), class: "menuNav-item"
+								- if current_user.store.present?
+
+									= link_to "View store", store_path(current_user.store), class: "menuNav-item"
+
+									= link_to "Admin Panel", store_dashboard_path(current_user.store), class: "menuNav-item"
+
+								= link_to "Edit Profile", edit_user_registration_path, class: "menuNav-item"
+								= link_to "Log Out", destroy_user_session_path, method: :delete, class: "menuNav-item"
+								
+					- else
+						-# .menuNav-list
+						= link_to "Open a store", new_user_registration_path, class: "join-button"
+						= link_to "Login", new_user_session_path
+
+			- if user_signed_in? && current_user.store.present?
+				.notification-container
+					.nav-action.nav-action-notifications{'data-behavior' => 'read-notifications'} 
+						.closeNotifications
+						.notificationsCount{data: {behavior: 'unread-count'} } 
+						.notifications{'data-behavior' => 'notifications'} 
+							.menuNav
+								.menuNav-arrow
+								.menuNav-scrim
+								.menuNav-list{'data-behavior' => 'notification-items'} 
+									
+										
+						

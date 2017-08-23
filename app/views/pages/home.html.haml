@@ -1,0 +1,118 @@
+
+.page
+	%article.white
+		.wrapper
+			.sell-title
+				Discover your next favorite store/brand/product.
+			.excerpt
+				All on a marketplace where people shop socially.
+
+			= form_with( url: search_path, method: :get, local: true) do |f|
+				= f.text_field :q, class: "homeSearch", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
+
+	%article.white
+		.wrapper
+			.section-header
+				Browse by Category
+			.wrapper
+				.grid
+					- @categories.each do |cat|
+						.col-quarter
+							.grid-tile
+								.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+								.tile-name
+									= link_to cat.name, cat
+				%br/
+				= link_to "View all categories", categories_path
+
+	%article.white
+		.wrapper
+			.sell-title
+				Reach new customers and markets
+				.excerpt
+
+					Claeus surfaces emerging brands and products, every day. It's a place for product-loving enthusiasts to find new products and awesome brands emerging in Africa and the world.
+				
+				= button_to "Start Selling", sell_path, method: :get, class: "button button-sexy"
+
+
+
+-# <div class="side-image">
+-#   <div class="images-wrapper"></div>
+-#     <div class="side-image-content">
+-#       <h4>Topic Name</h4>
+-#       <h1>Message with a gradient image</h1>
+-#       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.
+-#       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam assumenda nihil suscipit obcaecati sit, cum quod corporis adipisci ipsam, fugiat, quae error. Eaque commodi, dicta quidem explicabo mollitia inventore quibusdam.</p>
+-#   </div>
+-# </div>
+
+-# side-image {
+-#   $base-line-height: 1.5em !default;
+-#   $action-color: #477DCA !default;
+-#   $dark-gray: #333 !default;
+-#   $large-screen: 53.75em !default;
+-#   $base-font-color: $dark-gray !default;
+-#   $side-image-background-top: #B5EBEB;
+-#   $side-image-background-bottom: #5DAC5D;
+-#   $side-image-content-background: #F9F9F9;
+-#   $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, 0.8), 30%);
+
+-#   background: $side-image-content-background;
+
+-#   @include media($large-screen) {
+-#     @include row(table);
+-#   }
+
+-#   .images-wrapper {
+-#     background: url("https:
+-# //raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"),
+-#                 linear-gradient($side-image-background-top, $side-image-background-bottom),
+-#                 no-repeat $side-image-background-top scroll;
+-#     background-color: $side-image-background-top;
+-#     background-size: cover;
+-#     border-bottom: $side-image-border;
+-#     display: block;
+-#     min-height: 12em;
+-#     padding: 3em;
+
+-#     @include media($large-screen) {
+-#       @include span-columns(4);
+-#       background-position: bottom;
+-#       background-size: cover;
+-#       border-right: $side-image-border;
+-#     }
+-#   }
+
+-#   .side-image-content {
+-#     @include span-columns(12);
+-#     padding: 1em 1em 4em 1em;
+
+-#     @include media($large-screen) {
+-#       @include span-columns(8);
+-#       padding: 4em 4em 8em 4em;
+-#     }
+
+-#     h1 {
+-#       margin-bottom: 0.9em;
+-#     }
+
+-#     h4 {
+-#       background: #BBB;
+-#       color: white;
+-#       display: inline-block;
+-#       font-size: 0.75em;
+-#       margin-bottom: 1.3em;
+-#       padding: 3px 8px;
+-#       text-transform: uppercase;
+-#     }
+
+-#     p {
+-#       color: $base-font-color;
+-#       line-height: $base-line-height;
+-#       margin-bottom: 3em;
+-#     }
+-#   }
+
+-#   @include reset-display();
+-# }

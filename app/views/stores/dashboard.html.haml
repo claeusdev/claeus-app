@@ -1,0 +1,35 @@
+.section
+	.page
+		%article.white
+			.dashboard-container
+				.wrapper
+					.section-header= @store.name
+						
+					.row		
+						.col-full
+							.card.tiny-card
+								.card-header 
+									Performance
+									%span= link_to "View your store", store_path(current_user.store), class: "button-sm button-main"
+								
+
+						.col-full
+							.card.tiny-card
+								.card-header 
+									Products
+									%span= link_to "New", new_store_product_path, class: "button-sm button-main"
+									%span= link_to "View all", store_products_path, class: "button-sm button-main"
+						
+								.card-body
+									- if @store.products.present?
+									
+										.pad-20
+											.h4=	("You have #{@products.count} product").pluralize
+											
+											
+											.store-products-thumbnails
+												- @products.each do |p|
+													.product-thumb{ style: "background-image:  url('#{p.image.url(:thumb)}')"  }
+														
+									- else 
+										= button_to "List your first product", new_store_product_path, method: :get, class: "button button-sexy"

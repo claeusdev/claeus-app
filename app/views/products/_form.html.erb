@@ -1,0 +1,53 @@
+
+<%= form_with(model: [@store, @product], local: true) do |f|%>
+	<div class="row">
+
+		<div class="col-half">
+			<!--  -->
+			<!--  -->
+	    <div class="form-group">
+	      <%= f.label "Select a Category" %>
+	      <%= f.grouped_collection_select :subcategory_id, Category.order(:name), :subcategories, :name, :id, :name, {include_blank: true}, {class: "form-input"} %>
+	    </div>
+
+			 <div class="form-group">
+				<%= f.label :name, class: "form-label" %>
+				<%= f.text_field :name, class: "form-input" %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :description, class: "form-label" %>
+				<%= f.text_area :description, class: "form-input" %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :price, class: "form-label" %>
+				<%= f.text_field :price, class: "form-input" %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :image, class: "form-label" %>
+				<%= f.file_field :image, class: "form-input" %>
+			</div>
+		</div>
+		<div class="col-half">
+			<p class="lead">Add more pictures to this product</p>
+			<div class="form-group">
+				<%= f.fields_for :assets do |assets| %>
+					<% if assets.object.new_record? %>
+						<p>
+							<%= assets.file_field :image, class: "form-input" %>
+						</p>
+					<% end %>
+				<% end %>
+			</div>
+			<h3 class="section-header">Images
+			</h3>
+			<%= f.fields_for :assets do |assets| %>
+				<%= link_to image_tag(assets.object.image.url(:thumb)), assets.object.image.url(:medium) %>
+			<% end %>
+		</div>
+	</div>
+   
+	<p class="text-center"><%= f.submit id: "productSave" %></p>
+<% end %>

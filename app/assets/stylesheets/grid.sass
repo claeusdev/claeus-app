@@ -1,0 +1,55 @@
+// GRID SYSTEM
+.row
+	@include grid-container
+	width: 100%
+	overflow-y: auto
+	display: flex
+	-webkit-box-orient: vertical
+	-webkit-box-direction: normal
+	flex-direction: horizontal
+	flex-wrap: wrap
+
+.col-full
+	@include grid-column(12)
+
+.col-two
+	@include grid-column(2)
+	@media only screen and (max-width: 540px)
+		@include grid-column(12)
+
+.col-half
+	@include grid-column(6)
+	@media screen and (max-width: 468px)
+		@include grid-column(12)
+
+.col-third
+	@include grid-column(4)
+	@media screen and (max-width: 768px)
+		@include grid-column(6)
+
+	@media screen and (max-width: 540px)
+		@include grid-column(12)
+
+
+.col-quarter
+	@include grid-column(3)
+	@media screen and (max-width: 768px)
+		@include grid-column(6)
+	@media screen and (max-width: 468px)
+		@include grid-column(12)
+
+.col-eight
+	@include grid-column(8)
+	@media screen and (max-width: 540px)
+		@include grid-column(12)
+
+.col-nine
+	@include grid-column(9)
+	@media screen and (max-width: 540px)
+		@include grid-column(12)
+.col-ten
+	@include grid-column(10)
+	@media screen and (max-width: 540px)
+		@include grid-column(12)
+
+// Claeus grid

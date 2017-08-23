@@ -1,0 +1,124 @@
+.section
+	.page
+		%article.white
+			%br/
+			.section-header Search Results
+			.row
+				- @products.each do |p| 
+					.col-quarter
+						.product-card
+							.card-head
+								.buy-button-container
+									.card-buy-button
+										%p.price= number_to_currency((p.price).to_i, unit: "GHS")
+									
+							.card-body
+
+								.product-card-img
+									=  image_tag p.image.url(:medium)
+								.product-details
+									.product-name
+										%span= link_to p.name, store_product_path(p.store, p)
+									.product-store= link_to p.store.name, store_path(p.store) 
+
+							.card-footer
+								.left
+									%i.fa.fa-star{aria: {hidden: 'true'}}
+									%i.fa.fa-star{aria: {hidden: 'true'}}
+									%i.fa.fa-star{aria: {hidden: 'true'}}
+									%i.fa.fa-star{aria: {hidden: 'true'}}
+									%i.fa.fa-star{aria: {hidden: 'true'}}
+								.right
+									= link_to like_path(product_id: p.id), class: "#{'is-liked' if current_user.likes!(p)}", method: :post, remote: true do
+										.likes
+										%i.fa.fa-heart{aria: {hidden: 'true'}}
+											= p.likes.count
+
+-# <div class="comment">
+-#   <div class="comment-image">
+-#     <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png">
+-#   </div>
+-#   <div class="comment-content">
+-#     <h1>First Comment Title or Author</h1>
+-#     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+-#     <p class="comment-detail">Date or details about this post</p>
+-#   </div>
+-# </div>
+
+-# <div class="comment">
+-#   <div class="comment-image">
+-#     <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_square.png">
+-#   </div>
+-#   <div class="comment-content">
+-#     <h1>Another One</h1>
+-#     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, aspernatur, quia modi minima debitis tempora ducimus quam vero impedit alias earum nemo error tenetur sed.</p>
+-#     <p class="comment-detail">Date or details about this post</p>
+-#   </div>
+-# </div>
+
+-# .comment {
+-#   $base-border-radius: 3px !default;
+-#   $base-spacing: 1.5em !default;
+-#   $action-color: #477DCA !default;
+-#   $dark-gray: #333 !default;
+-#   $base-font-color: $dark-gray !default;
+-#   $comment-gutter: 1.4em;
+-#   $comment-image-padding: 0.7em;
+-#   $comment-image-width: 4em;
+-#   $comment-color: $base-font-color;
+-#   $comment-background: lighten($action-color, 15%);
+-#   $comment-detail-color: transparentize($comment-color, 0.5);
+-#   $comment-image-vert-alignment: top;
+
+-#   border-bottom: 1px solid transparentize($comment-color, 0.9);
+-#   display: table;
+-#   margin-bottom: $base-spacing;
+-#   padding-bottom: 1em;
+-#   width: 100%;
+
+-#   .comment-image,
+-#   .comment-content {
+-#     display: table-cell;
+-#     vertical-align: $comment-image-vert-alignment;
+-#   }
+
+-#   .comment-image {
+-#     padding-right: $comment-gutter;
+
+-#     > img {
+-#       background: $comment-background;
+-#       border-radius: $base-border-radius;
+-#       display: block;
+-#       height: auto;
+-#       max-width: none;
+-#       padding: $comment-image-padding;
+-#       width: $comment-image-width;
+-#     }
+
+-#     .comment-reverse-order & {
+-#       padding-left: 10px;
+-#       padding-right: 0;
+-#     }
+-#   }
+
+-#   .comment-content {
+-#     width: 100%;
+
+-#     h1 {
+-#       font-size: 1em;
+-#       margin: 0 0 0.5em 0;
+-#     }
+
+-#     p {
+-#       line-height: 1.5em;
+-#       margin-bottom: 0.5em;
+-#     }
+
+-#     p.comment-detail {
+-#       color: $comment-detail-color;
+-#       font-size: 0.9em;
+-#       font-style: italic;
+-#     }
+-#   }
+-# }
+

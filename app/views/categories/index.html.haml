@@ -1,0 +1,12 @@
+
+.page
+	.section
+		%article.white
+			.section-header All Categories
+			.grid
+				- @categories.each do |cat|
+					.col-quarter
+						.grid-tile
+							.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+							.tile-name
+								= link_to cat.name, cat

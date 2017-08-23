@@ -1,0 +1,48 @@
+
+<%= form_with(model: store, local: true)  do |f| %>
+	<% if @store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% @store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="form-group">
+		<%= f.text_field :name, class: "form-input", placeholder: "Your store name", autofocus: true %>
+	</div>
+
+	<div class="form-group">
+		<%= f.select :store_type, options_for_select(Store::STORE_TYPES), {},  class: 'form-input', placeholder: 'What type of seller? Eg. Retailer', include_blank: true %>
+	</div>
+
+	<div class="form-group">
+		<%= f.collection_select :category_id, Category.order(:name), :id, :name, {}, include_blank: true, class: "form-input" %>
+	</div>
+	
+	<div class="form-group">
+		<%= f.text_area :description, cols: 10, rows: 3, class: "form-input", placeholder: "Describe your store/brand in 200 characters" %>
+	</div>
+	
+	
+	<%= f.submit "Create your store", class: "button button-bg " %>
+
+<% end %>
+
+<!-- <div class="modal">
+  <label for="modal-1">
+    <div class="modal-trigger">Click for Modal</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <div class="modal-close" for="modal-1"></div>
+      <h1>Modal Title</h1>
+      <p class="modal-intro">Intro text lorem ipsum dolor sit ametm, quas, eaque facilis aliquid cupiditate tempora cumque ipsum accusantium illo modi commodi  minima.</p>
+      <p class="modal-content">Body text lorem ipsum dolor ipsum dolor sit sit possimus amet, consectetur adipisicing elit. Itaque, placeat, explicabo, veniam quos aperiam molestias eriam molestias molestiae suscipit ipsum enim quasi sit possimus quod atque nobis voluptas earum odit accusamus quibusdam. Body text lorem ipsum dolor ipsum dolor sit sit possimus amet.</p>
+    </div>
+  </div>
+</div> -->

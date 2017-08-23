@@ -1,0 +1,24 @@
+= content_for :title, @category.name + " on Claeus"
+
+
+.page
+	%article.white
+		.section
+			.section-header= @category.name
+			.wrapper
+				.grid
+					- @category.stores.each do |s|
+						.col-quarter
+							.grid-tile
+								= link_to s.name, s, class: "tile-name"
+							
+	
+
+		.section
+			.section-header Also in the Category
+			.wrapper
+				.grid
+					- @subcategories.each do |sub|
+						.col-quarter
+							.grid-tile
+								= link_to sub.name, sub, class: "tile-name"

@@ -1,0 +1,35 @@
+%footer
+	.wrapper
+		.footer-container
+			.footer-proper
+				%h1.footer-tagline
+					Discover awesome products on Claeus, <br>
+					a community where emerging brands rule.
+				.footer-primary-links
+					= link_to "About", about_path
+					= link_to "Sell", sell_path
+					= link_to "Contact", contact_path
+					= link_to "Blog", blog_path
+
+				.footer-small-text
+					Claeus is an independent company. 
+					%br/
+					©2017
+					Claeus.co. All rights reserved.
+
+				.footer-small-text.footer-secondary-links
+					= link_to "Terms"
+					= link_to "Privacy"
+					= link_to "Copyright"
+				.footer-social-links
+					= link_to "Facebook"
+					= link_to "Twitter"
+					= link_to "Instagram"
+			.footer-right.subscribe
+				.subscribe-headline
+					Get latest Claeus trends and ideas delivered right to your inbox.
+				%br/
+				.search-input-container
+					.input-group
+						= text_field_tag 'subscribe', nil, class: "form-input", placeholder: 'Enter your email'
+						= submit_tag 'Subscribe', class: 'input-group-button' 

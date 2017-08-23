@@ -1,0 +1,14 @@
+.page
+	%article.white
+		.section
+			.section-header= @subcategory.name
+			.wrapper
+				.grid
+					- @subcategory.products.each do |p|
+						.col-quarter
+							.grid-tile
+								= link_to p.name, [p.store, p], class: "tile-name"
+							
+	
+
+		

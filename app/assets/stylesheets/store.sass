@@ -1,0 +1,125 @@
+$size: 24px
+
+.actions
+	right: 0
+	top: 0
+	bottom: 0
+	display: flex
+	flex-direction: row
+	align-items: center
+	justify-content: center
+	@media only screen and (max-width: 540px)
+		align-items: flex-start
+		
+
+.follow-button	
+	appearance: none  !important
+	cursor: pointer
+	display: inline-block
+	font-size: 1rem !important
+	font-weight: 500 !important
+	padding: 5px !important
+	position: relative !important
+	text-align: center !important
+	text-decoration: none !important
+	transition-property: background-color, padding, border, box-shadow
+	transition-duration: 0.2s
+	transition-timing-function: ease-in-out
+	user-select: none
+	background-color: $claeusRed !important
+	color: white !important
+	width: 108px !important
+	transition-property: border, color, background-color
+	@media only screen and (max-width: 540px)
+		width: 80px !important 
+		padding: 5px !important
+		font-size: 14px !important
+
+
+.page-header
+	background-color: white
+	position: relative
+
+.store-info
+	display: block
+	font-size: 16px
+	.store-name
+		text-transform: uppercase
+		color: $claeusRed
+		font-size: 32px
+		font-weight: 300
+		line-height: 42px
+		max-height: 84px
+		overflow: hidden
+		margin: 20px 0 0
+		-webkit-transition: all 0.2s ease-in-out
+		transition: all 0.2s ease-in-out
+
+.brand-desc
+	color: #adadad
+	display: inline-block
+	transition: color 0.2s ease-in-out
+	font-weight: 500
+  
+.store-web
+	color: #adadad
+	display: inline-block
+	line-height: 1.5em
+	margin: 2px 0
+	background-size: 2px 2px
+	background-image: -webkit-linear-gradient(top, transparent 50%, #adadad 50%)
+	background-image: linear-gradient(to bottom, transparent 50%, #adadad 50%)
+	background-repeat: repeat-x
+	background-position: center bottom
+	text-decoration: none
+	transition: color 0.2s ease-in-out
+
+.share-btns
+	margin-top: 8px
+
+.store-stats-container
+	display: block
+	.store-stats
+		li
+			display: inline-block
+			list-style-type: none
+			line-height: 1.22
+
+
+.store-header
+	padding: 28px 0 24px
+	font-weight: 500
+	text-align: center
+	position: relative
+
+.store-logo
+	background-color: white
+	border: none
+	display: block
+	font-size: 0
+	margin: 0 auto
+	width: 100%
+	position: relative
+
+.store-header-content
+	padding: 10px 0
+	margin-bottom: 0
+	color: #999999
+	font-size: 20px
+	line-height: 1.2
+	letter-spacing: .1px
+	max-width: 600px
+	margin-right: auto
+	margin-left: auto
+	text-align: center
+	
+.store-pane
+	margin: 20px auto
+	min-height: 20vw
+
+.social-share-button 
+	.ssb-icon 
+		background-size: $size $size
+		height: $size
+		width: $size
+

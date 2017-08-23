@@ -1,0 +1,43 @@
+.section
+	.pdt-show
+		.wrapper
+			.product-header
+				.image-container
+					.product-img{ style: "background-image:  url('#{@product.image.url}')"  }
+
+					
+				.product-info
+					.center-vertical-outer
+						.center-vertical-inner
+							.centered-section
+								%span.badge-error= @product.subcategory.name
+								
+								%h1.product-name= @product.name
+								.product-store
+									%span  by
+									= link_to @product.store.name, store_path(@product.store)
+								.actions-container
+									%span.like
+										= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
+											.flex-items
+												%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
+												- if @product.likes.count > 0
+													.likes-count
+														= "liked by " + pluralize(@product.likes.count, 'person')
+								
+								
+								.buy-now-container= link_to "Order Now at #{number_to_currency(@product.price, unit: "GHS")}", url_for: [@store, @product], class: "button button-sexy"         
+								= social_share_button_tag(@product.name) 
+			.details
+				.section-header Details
+				.product-detail
+					.product-detail-header 
+						.header-title Gallery
+					.product-assets
+						- for asset in @product.assets 
+							%li.asset= link_to image_tag(asset.image.url(:thumb)), asset.image.url(:original)
+					
+				.product-detail
+					.product-detail-header
+						.header-title Description
+					.product-description= @product.description

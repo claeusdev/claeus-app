@@ -1,0 +1,39 @@
+.page-header
+	.wrapper
+		.store-header
+			.store-header-content
+				.row
+					.col-full
+						.store-info
+							%h2.store-name= @store.name
+							.badge.badge-alert= @store.store_type 
+						.brand-desc= @store.description
+						.followers
+							= pluralize(@store.followers.count, "follower")
+						.actions= follow_button (@store)
+						.share-btns= social_share_button_tag(@store.name)
+						
+
+.section
+	%section.store-pane
+		.wrapper
+			.row
+				- @products.each do |p| 
+					.col-quarter
+						.product-card
+							.card-head
+								.buy-button-container
+									.card-buy-button
+										%p.price= number_to_currency((p.price).to_i, unit: "GHS")
+									
+							.card-body
+
+								.product-card-img
+									=  image_tag p.image.url(:medium), class: "card-img-top"
+								.product-details
+									.product-name
+										%span= link_to p.name, store_product_path(@store, p)
+									.product-store= link_to p.store.name, store_path(p.store) 
+								
+
+

@@ -1,0 +1,254 @@
+
+// Styles for product show page
+
+.pdt-show
+	position: relative
+	background-color: white
+	overflow-x: hidden
+
+.product-header
+	width: 100%
+	height: 640px
+	font-size: 0
+	position: relative
+	text-align: right
+	box-shadow: 0px 13px 40px -24px rgba(0,0,0,0.15)
+	@media only screen and (max-width: 680px)
+		height: inherit
+	.image-container
+		background: white
+		display: block
+		text-align: center
+		user-select: none
+		position: absolute
+		width: 50%
+		top: 0
+		bottom: 0
+		left: 0
+		transition-property: width, height
+		transition-duration: 0.2s
+		transition-timing-function: ease-in-out
+
+		.actions-container
+			.like		    
+				transition: opacity 0.2s ease-in-out
+				cursor: pointer
+				letter-spacing: 1px
+				text-transform: uppercase
+				font-weight: 500
+				-moz-osx-font-smoothing: initial
+				-webkit-font-smoothing: subpixel-antialiased
+				display: block
+				color: #999999
+				font-size: 0
+				position: relative
+				z-index: 2
+				display: flex
+				-webkit-box-orient: horizontal
+				-webkit-box-direction: normal
+				flex-direction: row
+				align-items: center
+		
+		@media only screen and (max-width: 680px)
+			position: relative
+			width: 100%
+			height: 448px
+		@media only screen and (max-width: 540px)
+			height: 300px
+		.product-img
+			margin: 12%
+			margin-right: 10%
+			margin-left: 18%
+			margin-bottom: 20%
+			@media only screen and (max-width: 680px)
+				margin: 8%
+				margin-bottom: 64px
+		
+.product-img
+	background-position: center
+	background-repeat: no-repeat
+	background-size: contain
+	bottom: 0
+	font-size: 0
+	left: 0
+	position: absolute
+	right: 0
+	top: 0
+	-moz-transform: rotate(0.01deg)
+	transition: opacity 0.2s ease-in-out
+	
+	@media only screen and (max-width: 680px)
+		margin: 8%
+		margin-bottom: 64px
+
+
+.product-info
+	width: 50%
+	display: inline-block
+	padding-left: 50px
+	padding-right: 50px
+	height: 100%
+	font-size: 1rem
+	box-sizing: border-box
+	position: relative
+	vertical-align: top
+	text-align: left
+	@media only screen and (max-width: 680px)
+		padding: 0 20px 30px
+		overflow: hidden
+		width: 100%
+	.center-vertical-outer
+		display: table
+		height: 100%
+		width: 100%
+	.center-vertical-inner
+		display: table-cell
+		vertical-align: middle
+	.centered-section 
+		padding-bottom: 108px
+
+		@media only screen and (max-width: 540px)
+			padding-bottom: 48px
+
+		@media only screen and (max-width: 680px)
+			padding-bottom: 80px
+
+
+	.product-name
+		color: #525252
+		font-size: 32px
+		font-weight: 300
+		line-height: 42px
+		max-height: 84px
+		overflow: hidden
+		margin: 20px 0 0
+		transition: all 0.2s ease-in-out
+		@media only screen and (max-width: 400px)
+			margin-top: 0
+		@media only screen and (max-width: 540px)
+			margin-top: 10px
+			font-size: 28px
+			line-height: 38px
+			max-height: 76px
+
+	.product-description
+		margin-bottom: 20px
+		padding: 10px
+		color: #999999
+		text-transform: capitalize
+		font-weight: 500
+		letter-spacing: 2px
+		margin-top: 12px
+		
+
+.product-store
+	text-transform: uppercase
+	color: #999999
+	font-weight: 700
+	letter-spacing: 2px
+	margin-top: 12px
+
+
+.buy-now-container
+	margin-top: 42px
+	margin-bottom: 48px
+	position: relative
+	a
+		vertical-align: middle
+	a.buy-now
+		font-size: 20px
+		font-weight: 600
+		padding: 15px 35px
+		white-space: nowrap
+		transition-property: background-color, padding, font-size, box-shadow
+		transition-duration: 0.2s
+		transition-timing-function: ease-in-out
+
+.social-actions
+	position: absolute
+	bottom: 48px
+	width: 100%
+	padding-right: 100px
+	user-select: none
+	transition: bottom 0.2s ease-in-out
+
+.actions-container
+	width: 100%
+	bottom: 48px
+	padding-right: 10%
+	margin-top: 15px
+	box-sizing: border-box
+	display: flex
+	-ms-flex-direction: row
+	-webkit-box-orient: horizontal
+	-webkit-box-direction: normal
+	flex-direction: row
+	justify-content: left
+	.like
+		transition: opacity 0.2s ease-in-out
+		cursor: pointer
+		letter-spacing: 1px
+		text-transform: uppercase
+		font-weight: 500
+		-moz-osx-font-smoothing: initial
+		-webkit-font-smoothing: subpixel-antialiased
+		display: block
+		color: #999999
+		font-size: 0
+		position: relative
+		z-index: 2
+		display: flex
+		-ms-flex-direction: row
+		-webkit-box-orient: horizontal
+		-webkit-box-direction: normal
+		flex-direction: row
+		align-items: flex-start
+		.flex-items
+			display: flex
+			.likes-count
+				margin-left: 5px
+
+// Details section at bottom of product card
+.details
+	padding: 50px
+	width: 800px
+	max-width: 800px
+	margin: 0 auto
+	@media screen and (max-width: 540px)
+		max-width: 100%
+	.product-detail
+		bottom: 0
+		left: 0
+		overflow: hidden
+		position: relative
+		width: 100%
+		margin-top: 12px
+	.section-header
+		text-align: center
+		display: block
+		padding: 0 0 48px
+		font-size: 18px
+		font-weight: 700
+		text-transform: uppercase
+		letter-spacing: 3px
+		color: #525252
+	.product-detail-header
+		padding: 14px 0
+		width: 82%
+		margin: 0 auto
+		position: relative
+		display: flex
+		justify-content: space-between
+		.header-title
+			color: #525252
+			display: inline
+			font-weight: 300
+			font-size: 24px
+			line-height: 1.1em
+	
+	.product-assets
+		margin-bottom: 20px
+		.asset
+			list-style: none
+			display: inline-block
+
