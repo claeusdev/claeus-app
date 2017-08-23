@@ -17,8 +17,6 @@
 				.js-userNav.userNav
 					- if user_signed_in?
 						.nav-profile.nav-action.account-action{ style: "background-image:  url('#{current_user.avatar.url}')"  }
-						-if current_user.store.nil
-							
 						.menuNav
 							.menuNav-arrow
 							.menuNav-scrim
@@ -33,7 +31,7 @@
 
 								= link_to "Edit Profile", edit_user_registration_path, class: "menuNav-item"
 								= link_to "Log Out", destroy_user_session_path, method: :delete, class: "menuNav-item"
-								
+						
 					- else
 						-# .menuNav-list
 						= link_to "Open a store", new_user_registration_path, class: "join-button"
