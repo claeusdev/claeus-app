@@ -1,8 +1,9 @@
 class Cart < ApplicationRecord
 
-	def item_count
-		0
-	end
+	has_many :line_items, dependent: :destroy
 
+	def item_count
+		line_items.count
+	end
 
 end
