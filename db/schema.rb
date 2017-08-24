@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817225250) do
+ActiveRecord::Schema.define(version: 20170824043920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,7 @@ ActiveRecord::Schema.define(version: 20170817225250) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.string "image"
     t.index ["product_id"], name: "index_assets_on_product_id"
   end
 
@@ -31,10 +28,7 @@ ActiveRecord::Schema.define(version: 20170817225250) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
+    t.string "avatar"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
@@ -86,12 +80,9 @@ ActiveRecord::Schema.define(version: 20170817225250) do
     t.bigint "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.string "slug"
     t.bigint "subcategory_id"
+    t.string "image"
     t.index ["slug"], name: "index_products_on_slug", unique: true
     t.index ["store_id"], name: "index_products_on_store_id"
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
@@ -106,10 +97,7 @@ ActiveRecord::Schema.define(version: 20170817225250) do
     t.string "store_type"
     t.string "slug"
     t.bigint "category_id"
-    t.string "logo_file_name"
-    t.string "logo_content_type"
-    t.integer "logo_file_size"
-    t.datetime "logo_updated_at"
+    t.string "avatar"
     t.index ["category_id"], name: "index_stores_on_category_id"
     t.index ["slug"], name: "index_stores_on_slug", unique: true
     t.index ["user_id"], name: "index_stores_on_user_id"
@@ -140,11 +128,8 @@ ActiveRecord::Schema.define(version: 20170817225250) do
     t.string "full_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string "username"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

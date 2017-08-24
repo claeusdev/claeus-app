@@ -89,14 +89,28 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_host_name: 's3-us-west-2.amazonaws.com',
-    s3_credentials: {
-      bucket: ENV.fetch('S3_BUCKET_NAME'),
-      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-      s3_region: ENV.fetch('AWS_REGION'),
-    }
-  }
+  # CarrierWave.configure do |config|
+  #   config.fog_provider = 'fog/aws'                        # required
+  #   config.fog_credentials = {
+  #     provider:              'AWS',                        # required
+  #     aws_access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),                      # required
+  #     aws_secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),                        # required
+  #     region:                ENV.fetch('AWS_REGION'),                 # optional, defaults to 'us-east-1'
+  #     host:                  's3-us-west-2.amazonaws.com'             # optional, defaults to nil
+  #   }
+  #   config.fog_directory  = 'name_of_directory'                          # required
+  #   config.fog_public     = false                                        # optional, defaults to true
+  #   config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}" } # optional, defaults to {}
+  # end
+
+  # config.paperclip_defaults = {
+  #   storage: :s3,
+  #   s3_host_name: ,
+  #   s3_credentials: {
+  #     bucket: ENV.fetch('S3_BUCKET_NAME'),
+  #     access_key_id: 
+  #     secret_access_key: 
+  #     s3_region: 
+  #   }
+  # }
 end
