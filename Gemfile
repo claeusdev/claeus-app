@@ -23,7 +23,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'popper_js', '~> 1.9.9'
-gem "paperclip"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.3.0'
 gem 'haml', '~> 5.0', '>= 5.0.1'
 gem 'simple_form', '~> 3.5'
