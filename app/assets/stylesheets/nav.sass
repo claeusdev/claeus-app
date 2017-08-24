@@ -1,3 +1,9 @@
+#logo
+	height: 50px
+	font-size: 24px
+	font-weight: bold
+	color: $claeusRed
+
 .mainNav
 	background-color: rgba(255,255,255,0.99)
 	border-bottom: 1px solid rgba(0,0,0,0.07)
@@ -37,6 +43,52 @@
 	display: flex
 	flex-direction: row
 	align-items: center
+	.mainNavTab
+		margin: 0 6px
+		text-decoration: none
+		background-size: 30px
+		display: flex
+		-webkit-box-orient: horizontal
+		-webkit-box-direction: normal
+		flex-direction: row
+		-ms-flex-align: center
+		-webkit-box-align: center
+		align-items: center
+		.mainNavTabIcon
+			transition: opacity 0.2s ease-in-out
+			opacity: .5
+			display: block
+			height: 24px
+			width: 24px
+			background-size: contain
+			background-position: center
+			background-repeat: no-repeat
+			font-weight: 600
+			@media only screen and (max-width: 540px)
+				width: 28px
+		.mainNavTabText
+			color: #adadad
+			font-size: 20px
+			line-height: 20px
+			margin: 0 5px
+			display: block
+			-webkit-transition-property: font-size, color, margin
+			transition-property: font-size, color, margin
+			-webkit-transition-duration: 0.2s
+			transition-duration: 0.2s
+			-webkit-transition-timing-function: ease-in-out
+			transition-timing-function: ease-in-out
+			@media only screen and (max-width: 680px)
+				font-size: 0
+				margin: 0
+
+			@media only screen and (max-width: 985px)
+				font-size: 18px
+				margin: 0 2px 0 4px
+
+
+    
+    
 
 .navUserSection
 	padding-right: 10px
@@ -269,3 +321,5 @@
 	cursor: pointer
 	@media screen and (max-width: 540px)
 		display: block
+
+

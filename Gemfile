@@ -48,6 +48,9 @@ group :development, :test do
   gem 'faker'
 end
 
+group :production  do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
