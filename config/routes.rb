@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :order
+
   resources :categories
   resources :subcategories
   

@@ -10,18 +10,19 @@
 			= form_with( url: search_path, method: :get, local: true) do |f|
 				= f.text_field :q, class: "homeSearch", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
 
-	%article.white
+	%article.grey
 		.wrapper
 			.section-header
 				Browse by Category
 			.wrapper
-				.grid
-					- @categories.each do |cat|
-						.col-quarter
-							.grid-tile
-								.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
-								.tile-name
-									= link_to cat.name, cat
+				.grid-container
+					.grid
+						- @categories.each do |cat|
+							.col-quarter
+								.grid-tile
+									.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+									.tile-name
+										= link_to cat.name, cat
 				%br/
 				= link_to "View all categories", categories_path
 

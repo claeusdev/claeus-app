@@ -1,38 +1,47 @@
-.section
-	.page
+
+.page
+	.section
 		%article.white
 			%br/
 			.section-header Search Results
 			.row
-				- @products.each do |p| 
-					.col-quarter
-						.product-card
-							.card-head
-								.buy-button-container
-									.card-buy-button
-										%p.price= number_to_currency((p.price).to_i, unit: "GHS")
-									
-							.card-body
+				- if @products.empty?
+					.col-full
+						.headline Sorry, no products match your search
+						.dummy{style: "background-image: url(#{image_path 'cart.png'})"}
+					
 
-								.product-card-img
-									=  image_tag p.image.url(:medium)
-								.product-details
-									.product-name
-										%span= link_to p.name, store_product_path(p.store, p)
-									.product-store= link_to p.store.name, store_path(p.store) 
+				- else
+					- @products.each do |p| 
+						.col-quarter
+							.product-card
+								.card-head
+									.buy-button-container
+										.card-buy-button
+											%p.price= number_to_currency((p.price).to_i, unit: "GHS")
+										
+								.card-body
 
-							.card-footer
-								.left
-									%i.fa.fa-star{aria: {hidden: 'true'}}
-									%i.fa.fa-star{aria: {hidden: 'true'}}
-									%i.fa.fa-star{aria: {hidden: 'true'}}
-									%i.fa.fa-star{aria: {hidden: 'true'}}
-									%i.fa.fa-star{aria: {hidden: 'true'}}
-								.right
-									= link_to like_path(product_id: p.id), class: "#{'is-liked' if current_user.likes!(p)}", method: :post, remote: true do
-										.likes
-										%i.fa.fa-heart{aria: {hidden: 'true'}}
-											= p.likes.count
+									.product-card-img
+										=  image_tag p.image.url(:medium)
+									.product-details
+										.product-name
+											%span= link_to p.name, store_product_path(p.store, p)
+										.product-store= link_to p.store.name, store_path(p.store) 
+
+								.card-footer
+									.left
+										%i.fa.fa-star{aria: {hidden: 'true'}}
+										%i.fa.fa-star{aria: {hidden: 'true'}}
+										%i.fa.fa-star{aria: {hidden: 'true'}}
+										%i.fa.fa-star{aria: {hidden: 'true'}}
+										%i.fa.fa-star{aria: {hidden: 'true'}}
+									.right
+										= link_to like_path(product_id: p.id), class: "#{'is-liked' if current_user.likes!(p)}", method: :post, remote: true do
+											.likes
+											%i.fa.fa-heart{aria: {hidden: 'true'}}
+												= p.likes.count
+					
 
 -# <div class="comment">
 -#   <div class="comment-image">

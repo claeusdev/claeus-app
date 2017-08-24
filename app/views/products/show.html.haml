@@ -26,7 +26,7 @@
 														= "liked by " + pluralize(@product.likes.count, 'person')
 								
 								
-								.buy-now-container= link_to "Order Now at #{number_to_currency(@product.price, unit: "GHS")}", url_for: [@store, @product], class: "button button-sexy"         
+								.buy-now-container= link_to "Order Now at #{number_to_currency(@product.price, unit: "GHS")}", new_order_path, class: "button button-sexy"         
 								= social_share_button_tag(@product.name) 
 			.details
 				.section-header Details
@@ -35,7 +35,7 @@
 						.header-title Gallery
 					.product-assets
 						- for asset in @product.assets 
-							%li.asset= link_to image_tag(asset.image.url(:thumb)), asset.image.url(:original)
+							%li.asset= link_to image_tag(asset.image.url(:thumb)), asset.image.url
 					
 				.product-detail
 					.product-detail-header

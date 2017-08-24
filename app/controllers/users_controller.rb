@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   private 
-
+  
   def followed_stores
   	@user = User.find(params[:id])
   	@followed_stores = Store.where(followers.include? @user)

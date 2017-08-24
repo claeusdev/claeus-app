@@ -12,7 +12,7 @@ class Store < ApplicationRecord
   has_many :products
   has_many :followings
   has_many :followers, through: :followings
-
+  has_many :orders
 
   STORE_TYPES = ["Retailer", "Wholesaler", "Manufacturer"]
 
