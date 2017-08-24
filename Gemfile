@@ -36,6 +36,7 @@ gem 'normalize-rails'
 gem 'webpacker', '~> 2.0'
 # gem 'impressionist'
 gem "fog-aws"
+gem 'rmagick'
 
 
 group :development, :test do
