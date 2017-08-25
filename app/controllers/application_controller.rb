@@ -13,6 +13,9 @@ class ApplicationController < ActionController::Base
   end
 
   def get_cart
+    return @cart if @cart
+
+    Rails.logger.info "Loading from DB"
     if session[:cart_id]
       @cart = Cart.find session[:cart_id]
     else

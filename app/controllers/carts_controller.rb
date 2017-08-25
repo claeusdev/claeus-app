@@ -6,12 +6,15 @@ class CartsController < ApplicationController
 		line_item = @cart.line_items.build(line_item_params)
 		@product = Product.where(product_id: :product_id)
 		if line_item.save
-			flash[:success] = "Added to cart succesfully."
+			flash[:success] = "Added to cart succesfully"
 		else
 			flash[:error] = "Can't add #{line_item.product.name}, Errors: #{line_item.errors.full_messages.to_sentence}"
 		end
 		redirect_back fallback_location: @product
+	end
 
+	def show
+		@cart = get_cart
 	end
 
 
