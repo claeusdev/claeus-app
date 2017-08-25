@@ -2,10 +2,10 @@
 	.mainNav-layout.wrapper
 		.mainNav-tabs
 			= link_to "Claeus", root_path, class: 'mainNavTab', id: 'logo'
-			- if user_signed_in?
-				= link_to cart_path, class: 'mainNavTab' do
-					%span.mainNavTabIcon{ style: "background-image:  url(#{image_path 'cart.png'})"  }
-					%span.mainNavTabText= get_cart.item_count
+			-# - if user_signed_in?
+			= link_to cart_path, class: 'mainNavTab' do
+				%span.mainNavTabIcon{ style: "background-image:  url(#{image_path 'cart.png'})"  }
+				%span.mainNavTabText= get_cart.item_count
 		
 		.navUserSection
 			.mainNav-userSection
@@ -40,7 +40,7 @@
 						
 					- else
 						-# .menuNav-list
-						= link_to "Open a store", new_user_registration_path, class: "join-button"
+						= link_to "Start", new_user_registration_path, class: "join-button"
 						-# = link_to "Login", new_user_session_path
 
 			- if user_signed_in? && current_user.store.present?

@@ -1,0 +1,6 @@
+<%= form_with(model: @order, url: order_path, local: true) do |f| %>
+	<%= f.number_field :quantity, class: 'form-input'%>
+	<div class="buy-now-container">
+		<%= f.submit "Buy Now"%>
+	</div>
+<% end %>

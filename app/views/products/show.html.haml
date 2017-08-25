@@ -25,7 +25,7 @@
 													.likes-count
 														= "liked by " + pluralize(@product.likes.count, 'person')
 								
-								= form_with(model: LineItem.new, url: carts_add_path, local: true ) do |f| 
+								= form_with(model: Order.new, url: order_path, local: true ) do |f| 
 									= f.hidden_field :product_id, value: @product.id
 									= f.number_field :quantity, class: 'form-input'
 									.buy-now-container
