@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
   end
 
   def destroy_cart
-    session[:cart_id].nil
+    # get_cart.destroy
+    session[:cart_id] = nil
   end
   
   protected

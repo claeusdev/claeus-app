@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :order do
-    store nil
-    user nil
+    name "MyString"
+    address "MyString"
+    phone "MyString"
   end
 end

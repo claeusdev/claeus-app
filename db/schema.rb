@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825041920) do
+ActiveRecord::Schema.define(version: 20170825052253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170825041920) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order_id"
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
@@ -89,15 +90,11 @@ ActiveRecord::Schema.define(version: 20170825041920) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "store_id"
-    t.bigint "user_id"
-    t.bigint "product_id"
+    t.string "name"
+    t.string "address"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity"
-    t.index ["product_id"], name: "index_orders_on_product_id"
-    t.index ["store_id"], name: "index_orders_on_store_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -166,9 +163,6 @@ ActiveRecord::Schema.define(version: 20170825041920) do
   add_foreign_key "likes", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
-  add_foreign_key "orders", "products"
-  add_foreign_key "orders", "stores"
-  add_foreign_key "orders", "users"
   add_foreign_key "products", "stores"
   add_foreign_key "products", "subcategories"
   add_foreign_key "stores", "categories"

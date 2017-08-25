@@ -9,7 +9,7 @@ class FollowingsController < ApplicationController
 
     # Creating notifications
 
-    Notification.create(recipient: @store, actor: current_user, action: " followed", notifiable: @store )
+    Notification.create(recipient: @store, actor: current_user, action: " followed your ", notifiable: @store )
     redirect_to @store, notice: "You have successfully followed!!"
   end
 
