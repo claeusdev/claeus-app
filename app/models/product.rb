@@ -12,6 +12,7 @@ class Product < ApplicationRecord
   validates :price, numericality: true
   validates :image, presence: true
 
+  has_many :line_items, dependent: :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
   before_save :round_price

@@ -3,9 +3,6 @@ class ApplicationController < ActionController::Base
    helper_method :get_cart
    
   
-  
-
-
   def set_cart
     @cart = Cart.create
     session[:cart_id] = @cart.id
@@ -21,6 +18,10 @@ class ApplicationController < ActionController::Base
     else
       set_cart
     end
+  end
+
+  def destroy_cart
+    session[:cart_id].nil
   end
   
   protected

@@ -1,0 +1,8 @@
+.page
+	.section
+		%article.white
+			.section-header Your Cart
+			- @cart.line_items.each do |line_item|
+				= line_item.product.name
+				= line_item.quantity
+				%br/

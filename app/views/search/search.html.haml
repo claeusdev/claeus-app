@@ -36,11 +36,12 @@
 										%i.fa.fa-star{aria: {hidden: 'true'}}
 										%i.fa.fa-star{aria: {hidden: 'true'}}
 										%i.fa.fa-star{aria: {hidden: 'true'}}
-									.right
-										= link_to like_path(product_id: p.id), class: "#{'is-liked' if current_user.likes!(p)}", method: :post, remote: true do
-											.likes
-											%i.fa.fa-heart{aria: {hidden: 'true'}}
-												= p.likes.count
+									- if user_signed_in?
+										.right
+											= link_to like_path(product_id: p.id), class: "#{'is-liked' if current_user.likes!(p)}", method: :post, remote: true do
+												.likes
+												%i.fa.fa-heart{aria: {hidden: 'true'}}
+													= p.likes.count
 					
 
 -# <div class="comment">
