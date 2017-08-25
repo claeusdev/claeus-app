@@ -25,8 +25,12 @@
 													.likes-count
 														= "liked by " + pluralize(@product.likes.count, 'person')
 								
-								
-								.buy-now-container= link_to "Order Now at #{number_to_currency(@product.price, unit: "GHS")}", new_order_path, class: "button button-sexy"         
+								= form_with(model: LineItem.new, url: carts_add_path, local: true ) do |f| 
+									= f.hidden_field :product_id, value: @product.id
+									= f.number_field :quantity, class: 'form-input'
+									.buy-now-container
+										= f.submit "Add to Cart"
+									      
 								= social_share_button_tag(@product.name) 
 			.details
 				.section-header Details

@@ -11,6 +11,11 @@
   <body>
     <div id="content">
       <%= render "layouts/header" %>
+        <div class="wrapper">
+          <% flash.each do |key, value| %>
+            <div class="badge-<%= flasherize(key)%>"><%= value %></div>
+          <% end %>
+        </div>
       <%= yield %>
       <%= render "layouts/footer" %>
     </div>
