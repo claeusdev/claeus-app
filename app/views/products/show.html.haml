@@ -16,27 +16,31 @@
 								.product-store
 									%span  by
 									= link_to @product.store.name, store_path(@product.store)
-								.actions-container
-								- if user_signed_in?
-									%span.like
-										= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
-											.flex-items
-												%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
-												- if @product.likes.count > 0
-													.likes-count
-														= "liked by " + pluralize(@product.likes.count, 'person')
-								- else
-									%span.like
-										.flex-items
-											%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
-											- if @product.likes.count > 0
-												.likes-count
-													= "liked by " + pluralize(@product.likes.count, 'person')
-								= form_with(model: LineItem.new, url: carts_add_path, local: true ) do |f| 
-									= f.hidden_field :product_id, value: @product.id
-									= f.number_field :quantity, class: 'form-input'
-									.buy-now-container
-										= f.submit "Add to Cart"
+								.buy-now-container
+									.price= number_to_currency(@product.price, unit: "GHC")
+
+								-# .actions-container
+								-# - if user_signed_in?
+								-# 	%span.like
+								-# 		= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
+								-# 			.flex-items
+								-# 				%span.fa.fa-heart-o{aria: {hidden: 'true'}}
+								-# 				- if @product.likes.count > 0
+								-# 					%span= @product.likes.count
+								-# - else
+								-# 	%span.like
+								-# 		.flex-items
+								-# 			%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
+								-# 			- if @product.likes.count > 0
+								-# 				%span= @product.likes.count
+								-# = form_with(model: LineItem.new, url: carts_add_path, local: true ) do |f| 
+								-# 	= f.hidden_field :product_id, value: @product.id
+								-# 	= f.number_field :quantity, class: 'form-input'
+								
+								
+								-# 		= f.submit "Add to Cart"
+
+								%br/
 									      
 								= social_share_button_tag(@product.name) 
 			.details
@@ -51,4 +55,4 @@
 				.product-detail
 					.product-detail-header
 						.header-title Description
-					.product-description= @product.description
+					.product-description= sanitize(@product.description)

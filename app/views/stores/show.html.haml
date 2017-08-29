@@ -20,20 +20,17 @@
 			.row
 				- @products.each do |p| 
 					.col-quarter
-						.product-card
-							.card-head
-								.buy-button-container
-									.card-buy-button
-										%p.price= number_to_currency((p.price).to_i, unit: "GHS")
-									
-							.card-body
+						= link_to store_product_path(@store, p) do
+							.card
+								.card-image
+									%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
+								.card-header
+									.product-name= p.name.truncate_words(4) 
+								.card-body
+									.price= number_to_currency((p.price).to_i, unit: "GHS")
+	    
 
-								.product-card-img
-									=  image_tag p.image.url(:medium), class: "card-img-top"
-								.product-details
-									.product-name
-										%span= link_to p.name, store_product_path(@store, p)
-									.product-store= link_to p.store.name, store_path(p.store) 
 								
+
 
 

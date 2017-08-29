@@ -19,10 +19,10 @@
 					.grid
 						- @categories.each do |cat|
 							.col-quarter
-								.grid-tile
-									.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
-									.tile-name
-										= link_to cat.name, cat
+								= link_to cat do
+									.grid-tile
+										.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+										.tile-name= cat.name
 				%br/
 				= link_to "View all categories", categories_path
 

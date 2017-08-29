@@ -6,7 +6,7 @@
 	display: flex
 	-webkit-box-orient: vertical
 	-webkit-box-direction: normal
-	flex-direction: horizontal
+	flex-direction: row
 	flex-wrap: wrap
 
 .col-full
@@ -15,7 +15,7 @@
 .col-two
 	@include grid-column(2)
 	@media only screen and (max-width: 540px)
-		@include grid-column(12)
+		@include grid-column(6)
 
 .col-half
 	@include grid-column(6)
@@ -28,7 +28,7 @@
 		@include grid-column(6)
 
 	@media screen and (max-width: 540px)
-		@include grid-column(12)
+		@include grid-column(6)
 
 
 .col-quarter
@@ -36,7 +36,7 @@
 	@media screen and (max-width: 768px)
 		@include grid-column(6)
 	@media screen and (max-width: 468px)
-		@include grid-column(12)
+		@include grid-column(6)
 
 .col-eight
 	@include grid-column(8)

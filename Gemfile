@@ -22,7 +22,6 @@ gem 'devise'
 gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-sass', '~> 4.7.0'
-gem 'popper_js', '~> 1.9.9'
 gem 'carrierwave', '~> 1.0'
 gem 'haml', '~> 5.0', '>= 5.0.1'
 gem 'simple_form', '~> 3.5'
@@ -37,6 +36,7 @@ gem 'webpacker', '~> 2.0'
 # gem 'impressionist'
 gem "fog-aws"
 gem 'rmagick'
+
 
 
 group :development, :test do

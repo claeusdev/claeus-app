@@ -3,12 +3,20 @@
 		.section
 			.section-header= @subcategory.name
 			.wrapper
-				.grid
+				.row
 					- @subcategory.products.each do |p|
 						.col-quarter
-							.grid-tile
-								= link_to p.name, [p.store, p], class: "tile-name"
-							
+							= link_to store_product_path(p.store, p) do
+								.card
+									.card-image
+										%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
+									.card-header
+										.product-name= p.name.truncate_words(4) 
+									.card-body
+										.price= number_to_currency((p.price).to_i, unit: "GHS")
+										.store= link_to p.store.name, p.store
+
+								
 	
 
 		

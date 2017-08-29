@@ -7,33 +7,12 @@
 				.row
 					- @products.each do |p|
 						.col-quarter
-							.product-card
-								.card-head
-									.buy-button-container
-										.card-buy-button
-											%p.price= number_to_currency((p.price).to_i, unit: "GHS")
-										
-								.card-body
-
-									.product-card-img
-										=  image_tag p.image.url(:medium), class: "card-img-top"
-									.product-details
-										.product-name
-											%span= link_to p.name, store_product_path(@store, p)
-										.product-store= link_to p.store.name, store_path(p.store) 
-								.card-footer
-									.liked
-										= link_to like_path(product_id: p.id), class: "#{'is-liked' if current_user.likes!(p)}", method: :post do
-											.likes
-											%i.fa.fa-heart{aria: {hidden: 'true'}}
-											- if p.likes.count > 0
-												.likes-count
-													= pluralize(p.likes.count, "like")
-									.ratings
-										%i.fa.fa-star{aria: {hidden: 'true'}}
-										%i.fa.fa-star{aria: {hidden: 'true'}}
-										%i.fa.fa-star{aria: {hidden: 'true'}}
-										%i.fa.fa-star{aria: {hidden: 'true'}}
-										%i.fa.fa-star{aria: {hidden: 'true'}}
-									
-
+							= link_to store_product_path(@store, p) do
+								.card
+									.card-image
+										%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
+									.card-header
+										.product-name= p.name.truncate(30) 
+									.card-body
+										%p.price= number_to_currency((p.price).to_i, unit: "GHS")
+	    
