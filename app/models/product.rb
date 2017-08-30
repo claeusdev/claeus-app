@@ -17,6 +17,8 @@ class Product < ApplicationRecord
 
   before_save :round_price
 
+  paginates_per 25
+
   private
 
   def round_price

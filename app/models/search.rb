@@ -1,5 +1,5 @@
 class Search
-
+	
 	attr_reader :term
 
 	def to_partial_path

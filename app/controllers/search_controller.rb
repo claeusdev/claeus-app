@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
 
 	def search
-		@products = Product.ransack(name_cont: params[:q]).result(distinct: true)
-		@stores 	= Store.ransack(name_cont: params[:q]).result(distinct: true)
+		@products = Product.ransack(name_cont: params[:q]).result(distinct: true).page(params[:page])
+		@stores 	= Store.ransack(name_cont: params[:q]).result(distinct: true).page(params[:page])
 
 		@found_products = @products
 		@found_stores = @stores
