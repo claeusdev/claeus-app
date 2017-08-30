@@ -1,27 +1,26 @@
 class OrdersController < ApplicationController
+	before_action :authenticate_user!
+	
+	def new
+		@order = Order.new
+	end
+
 	def create
-		@order = Order.new(order_params)
-		@order.line_items = get_cart.line_items
-		if @order.save!
-			flash[:success] = 'Thanks for your order'
-			destroy_cart
-
-			@order.line_items.each do |line|
-				@store = line.product.store
-				Notification.create(recipient: @store, actor: current_user, action: " placed an ", notifiable: @order )
-			end
-			redirect_to root_path
-		else
-			flash[:error] = @order.errors.full_messages.to_sentence
+		if params[:product_id]
+			product = Product.find(params[:product_id])
+			@store = product.store
+			@order = Order.new(order_params)
 		end
+		
+	end
 
-
-
+	def checkout
+		
 	end
 
 	private
 
 	def order_params
-		params.require(:order).permit(:name, :phone, :address)
+		params.require(:order).permit(:name, :phone, :address, :quantity, :user_id, :product_id, :store_id)
 	end
 end

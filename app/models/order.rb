@@ -1,3 +1,5 @@
 class Order < ApplicationRecord
-	has_many :line_items
+	belongs_to :store
+	belongs_to :product
+	belongs_to :user
 end

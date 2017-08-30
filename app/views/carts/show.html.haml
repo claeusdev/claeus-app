@@ -1,20 +1,5 @@
 .page
 	.section
 		%article.white
-			.section-header Your Cart
-			- @cart.line_items.each do |line_item|
-				= line_item.product.name
-				= line_item.quantity
-				%br/
-
-
-
-
-= form_with(model: Order.new, url: order_path, local: true ) do |f|
-	= f.text_field :name, placeholder: 'Your name', class: 'form-input'
-
-	= f.text_area :address, placeholder: 'Your Address', class: 'form-input'
-
-	= f.text_field :phone, placeholder: 'Your contact', class: 'form-input'
-
-	= f.submit "Order", :disable_with => 'Ordering'
+		
+			= render @cart

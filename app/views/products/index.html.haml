@@ -12,7 +12,7 @@
 									.card-image
 										%img{:src => "#{p.image.url(:medium)}", :alt => ""}/
 									.card-header
-										.product-name= p.name.truncate(30) 
+										.product-name= p.name.truncate_words(4) 
 									.card-body
 										%p.price= number_to_currency((p.price).to_i, unit: "GHS")
 	    

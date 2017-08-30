@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
   post 'like' => 'likes#toggle'
 
 
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :order
+  resources :orders
 
   resources :categories
   resources :subcategories

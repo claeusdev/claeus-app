@@ -41,14 +41,12 @@
 					<% end %>
 				<% end %>
 			</div>
-			<% unless @product.present? %>
 				<h3 class="section-header">Images
 				</h3>
 
 				<%= f.fields_for :assets do |assets| %>
 					<%= link_to image_tag(assets.object.image.url(:thumb)), assets.object.image.url(:medium) %>
 				<% end %>
-			<% end %>
 		</div>
 	</div>
    

@@ -1,0 +1,7 @@
+.section-header Your Cart
+
+= render(cart.line_items)
+				
+
+= number_to_currency(cart.total_price, unit: 'GHS')
+= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } 

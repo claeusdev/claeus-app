@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829144837) do
+ActiveRecord::Schema.define(version: 20170830131937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,12 +68,11 @@ ActiveRecord::Schema.define(version: 20170829144837) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.bigint "cart_id"
     t.bigint "product_id"
-    t.integer "quantity"
+    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "order_id"
+    t.integer "quantity", default: 1
     t.index ["cart_id"], name: "index_line_items_on_cart_id"
     t.index ["product_id"], name: "index_line_items_on_product_id"
   end
@@ -87,15 +86,6 @@ ActiveRecord::Schema.define(version: 20170829144837) do
     t.string "notifiable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "quantity"
   end
 
   create_table "products", force: :cascade do |t|

@@ -6,6 +6,7 @@ class Product < ApplicationRecord
 
   belongs_to :store
   belongs_to :subcategory
+
   has_many :assets, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
   validates :name, :description, :price, presence: true
@@ -19,10 +20,19 @@ class Product < ApplicationRecord
 
   paginates_per 25
 
+  before_destroy :ensure_not_referenced_by_any_line_item
+
   private
 
   def round_price
     price.round
+  end
+
+  def ensure_not_referenced_by_any_line_item
+    unless line_items.empty?
+      errors.add(:base, 'Line Items present')
+      throw :abort
+    end
   end
 
 end

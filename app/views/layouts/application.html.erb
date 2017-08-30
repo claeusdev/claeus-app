@@ -12,6 +12,7 @@
     <div id="content">
       <%= render "layouts/header" %>
         <div class="wrapper">
+          <br>
           <% flash.each do |key, value| %>
             <div class="badge-<%= flasherize(key)%>"><%= value %></div>
           <% end %>

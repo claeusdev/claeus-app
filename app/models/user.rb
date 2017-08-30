@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :followings
   has_many :followed_stores, through: :followings
 
+  has_many :orders
+  
   def following? store, user
     store.follower_ids.include? user.id
   end
