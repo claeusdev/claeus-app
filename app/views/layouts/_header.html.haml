@@ -42,7 +42,14 @@
 						-# .menuNav-list
 						= link_to "Start", new_user_registration_path, class: "join-button"
 						-# = link_to "Login", new_user_session_path
-
+				.nav-action.navCart{ style: "background-image:  image-url('cart.png')"  }
+					.cartCount
+						- if @cart
+							= link_to cart_path(@cart) do
+								= @cart.line_items.count
+						- else
+							= link_to @cart do
+								= 0
 			- if user_signed_in? && current_user.store.present?
 				.notification-container
 					.nav-action.nav-action-notifications{'data-behavior' => 'read-notifications'} 

@@ -12,7 +12,7 @@ class StoresController < ApplicationController
 	def dashboard
 		@store = Store.friendly.find(params[:store_id])
 		@products = @store.products.order(created_at: "DESC").limit(5)
-		
+		# @orders = Order.where()
 	end
 
 	def show

@@ -4,7 +4,7 @@
 			.dashboard-container
 				.wrapper
 					.section-header= @store.name
-						
+					
 					.row		
 						.col-full
 							.card.tiny-card
@@ -33,3 +33,11 @@
 														
 									- else 
 										= button_to "List your first product", new_store_product_path, method: :get, class: "button button-sexy"
+
+						.col-full
+							.card.tiny-card
+								.card-header Orders
+
+
+								.card-body
+									

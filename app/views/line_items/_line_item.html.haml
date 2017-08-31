@@ -1,2 +1,8 @@
-= line_item.product.name
-= line_item.quantity
+
+%tr
+	%td= line_item.product.name
+	%td= line_item.quantity
+	%td= line_item.total_price
+	%td
+		%button Confirm 
+		%button Reject

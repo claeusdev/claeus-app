@@ -25,4 +25,10 @@ class Store < ApplicationRecord
   validates :category, presence: true
 
 
+
+  def get_orders(store)
+    # LineItem.where()
+    # Order.where()
+  end
+
 end

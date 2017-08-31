@@ -1,7 +1,15 @@
 .section-header Your Cart
-
-= render(cart.line_items)
-				
-
-= number_to_currency(cart.total_price, unit: 'GHS')
-= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } 
+.row
+	.col-eight
+		%table.tables
+			%thead
+				%tr
+					%th Name
+					%th Quantity
+					%th Price
+			%tbody
+				= render(cart.line_items)
+	.col-quarter
+		= number_to_currency(cart.total_price, unit: 'GHS')
+		= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are you sure?' } 
+		= button_to "Checkout", new_order_path, method: :get
