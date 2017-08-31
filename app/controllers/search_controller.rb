@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-
+	include CurrentCart
 	def search
 		@products = Product.ransack(name_cont: params[:q]).result(distinct: true).page(params[:page])
 		@stores 	= Store.ransack(name_cont: params[:q]).result(distinct: true).page(params[:page])

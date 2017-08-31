@@ -10,6 +10,9 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    if @cart.line_items.empty?
+      redirect_to root_path, notice: "Your cart is empty. Please add products to view your cart"
+    end
   end
 
   # GET /carts/new
