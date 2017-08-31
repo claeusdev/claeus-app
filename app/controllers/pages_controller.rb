@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  include CurrentCart
+  
   def home
   	@stores = Store.all
     @ftd = Store.all

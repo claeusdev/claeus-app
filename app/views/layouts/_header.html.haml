@@ -46,10 +46,10 @@
 					.cartCount
 						- if @cart
 							= link_to cart_path(@cart) do
-								= @cart.line_items.count
+								= @cart.item_count
 						- else
-							= link_to @cart do
-								= 0
+							= LineItem.count
+						
 			- if user_signed_in? && current_user.store.present?
 				.notification-container
 					.nav-action.nav-action-notifications{'data-behavior' => 'read-notifications'} 
