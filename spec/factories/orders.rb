@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :order do
     name "MyString"
+    phone "MyString"
     address "MyText"
-    email "MyString"
-    payment_type 1
+    product nil
+    store nil
   end
 end

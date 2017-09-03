@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  resources :line_items
-  resources :carts
   post 'like' => 'likes#toggle'
-
 
   devise_for :users, controllers: {:registrations => 'users/registrations'}
 
@@ -25,7 +22,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    get "checkout", to: 'orders#checkout'
+  end
 
   resources :categories
   resources :subcategories
@@ -40,12 +39,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, :only => [:show]
-  
-  
   root 'pages#home'
 
-  # Carts
-  get "cart", to: 'carts#show'
-  post 'carts/add'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

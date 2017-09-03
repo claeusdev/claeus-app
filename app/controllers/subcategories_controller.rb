@@ -1,6 +1,5 @@
 class SubcategoriesController < ApplicationController
 	before_action :set_cat, only: [:show, :edit, :update, :destroy]
-
 	def index
 		@subcategories = Subcategory.all
 	end
@@ -16,7 +15,7 @@ class SubcategoriesController < ApplicationController
 	def create
 		@subcategory = Subcategory.new(category_params)
 		if @subcategory.save
-			redirect_to @subcategory, notice: "Subcategory added!"
+			redirect_to @subcategory, success: "Subcategory added!"
 		else
 			render "new"
 		end

@@ -16,16 +16,10 @@
 								.product-store
 									%span  by
 									= link_to @product.store.name, store_path(@product.store)
-								.show-price= number_to_currency(@product.price, unit: 'GHS')
+								-# .show-price= number_to_currency(@product.price, unit: 'GHS')
 								.buy-now-container
-									= button_to 'Add to Cart', line_items_path(product_id: @product)
-									-# = link_to "Buy now at " + number_to_currency(@product.price, unit: "GHC"), new_order_path(product_id: @product.id), class: 'button buy-now goto-order'
-							
-									-# = form_with(model: Order.new, url: new_order_path, local: true ) do |f| 
-									-# 	= f.hidden_field :product_id, value: @product.id
-									-# 	= f.number_field :quantity, class: 'input small-input'
+									= link_to "Buy now at " + number_to_currency(@product.price, unit: "GHC"), new_order_path(product_id: @product.id), class: 'button buy-now goto-order'
 									
-									-# 	= f.submit "Buy now", class: ' buy-now goto-order'
 
 								%br/
 									      
@@ -61,3 +55,5 @@
 								-# 			%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
 								-# 			- if @product.likes.count > 0
 								-# 				%span= @product.likes.count
+
+

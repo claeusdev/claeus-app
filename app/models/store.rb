@@ -13,6 +13,7 @@ class Store < ApplicationRecord
   has_many :followings
   has_many :followers, through: :followings
   has_many :orders
+  has_many :sub_orders
 
   STORE_TYPES = ["Retailer", "Wholesaler", "Manufacturer"]
 
@@ -24,11 +25,6 @@ class Store < ApplicationRecord
   validates :store_type, presence: true, inclusion: { in: STORE_TYPES }
   validates :category, presence: true
 
-
-
-  def get_orders(store)
-    # LineItem.where()
-    # Order.where()
-  end
+ 
 
 end
