@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :line_items
   post 'like' => 'likes#toggle'
 
   devise_for :users, controllers: {:registrations => 'users/registrations'}
@@ -22,13 +24,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders do
-    get "checkout", to: 'orders#checkout'
-  end
 
   resources :categories
   resources :subcategories
   
+  get "buy", to: "products#buy"
   resources :stores do
     resources :products
 
@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   	get 'dashboard', to: "stores#dashboard"
     get 'settings', to: "stores#settings"
   end
+
+  resources :orders
 
   resources :users, :only => [:show]
   root 'pages#home'

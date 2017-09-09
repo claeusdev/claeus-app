@@ -5,7 +5,20 @@
 				.image-container
 					.product-img{ style: "background-image:  url('#{@product.image.url}')"  }
 
-					
+					.product-actions
+						.actions-container
+							- if user_signed_in?
+								%span.action-like.action-showText
+									= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
+
+										%span.fa.fa-heart{aria: {hidden: 'true'}}
+										- if @product.likes.count > 0
+											%span.showText= pluralize(@product.likes.count, "Like")
+								-# - else
+							-# 	%span.action-like.action-showText
+							-# 		%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
+							-# 		- if @product.likes.count > 0
+							-# 			%span= "Like"
 				.product-info
 					.center-vertical-outer
 						.center-vertical-inner
@@ -16,14 +29,26 @@
 								.product-store
 									%span  by
 									= link_to @product.store.name, store_path(@product.store)
-								-# .show-price= number_to_currency(@product.price, unit: 'GHS')
-								.buy-now-container
-									= link_to "Buy now at " + number_to_currency(@product.price, unit: "GHC"), new_order_path(product_id: @product.id), class: 'button buy-now goto-order'
-									
+								.show-price= number_to_currency(@product.price, unit: 'GHS')
+								-# .buy-now-container
+								-# 	= form_for @order, url: orders_path(product_id: @product), local: true do |f|
+								-# 		= f.number_field :quantity, value: 1, class: "form-input"
 
+								-# 		= f.submit "Order now at #{number_to_currency(@product.price, unit: "GHC")}"  
+									
 								%br/
-									      
+					.social-actions
+						.actions-container	
+							.social
 								= social_share_button_tag(@product.name) 
+
+							-# - if user_signed_in?
+							-# 	= link_to new_user_registration_path, class: "comment" do
+							-# 		Write a comment
+							-# - else
+							-# 	= link_to new_user_registration_path, class: "comment" do
+							-# 		Sign up to comment
+
 			.details
 				.section-header Details
 				.product-detail
@@ -41,19 +66,6 @@
 
 
 
-	-# .actions-container
-								-# - if user_signed_in?
-								-# 	%span.like
-								-# 		= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
-								-# 			.flex-items
-								-# 				%span.fa.fa-heart-o{aria: {hidden: 'true'}}
-								-# 				- if @product.likes.count > 0
-								-# 					%span= @product.likes.count
-								-# - else
-								-# 	%span.like
-								-# 		.flex-items
-								-# 			%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
-								-# 			- if @product.likes.count > 0
-								-# 				%span= @product.likes.count
+	-# 
 
 

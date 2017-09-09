@@ -1,0 +1,12 @@
+
+%article.white
+	.section
+		.wrapper
+			.section-header Checkout
+			.row
+				.col-quarter
+					.heading Your summary
+					%h1= @product.name
+					%p= number_to_currency(@product.price, unit: 'GHC')
+				.col-eight
+					= render 'new_order'

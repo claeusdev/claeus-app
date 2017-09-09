@@ -38,4 +38,10 @@ class User < ApplicationRecord
     likes.where(likeable: likeable).exists?
   end
 
+  def buy(name, address, phone, email, store, product)
+    if new_record?
+      orders.where(name: name, address: address, phone: phone, email: email, store: store, product: product).create!
+    end
+  end
+
 end

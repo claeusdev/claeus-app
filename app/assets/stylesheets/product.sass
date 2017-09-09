@@ -1,4 +1,10 @@
+i
+	line-height: 25px !important
+	font-weight: 600
 
+
+a.is-liked
+	color: tint($claeusRed, 20%)
 // Styles for product show page
 
 .pdt-show
@@ -177,40 +183,52 @@
 	padding-right: 100px
 	user-select: none
 	transition: bottom 0.2s ease-in-out
+	@media only screen and (max-width: 680px)
+		bottom: 24px
+	@media only screen and (max-width: 540px)
+		bottom: 12px
+	.actions-container
+		width: 100%
+		@media only screen and (max-width: 540px)
+			border: none
 
-.actions-container
-	width: 100%
-	bottom: 48px
-	padding-right: 10%
-	margin-top: 15px
-	box-sizing: border-box
-	display: flex
-	-ms-flex-direction: row
-	-webkit-box-orient: horizontal
-	-webkit-box-direction: normal
-	flex-direction: row
-	justify-content: left
-	.like
-		transition: opacity 0.2s ease-in-out
-		cursor: pointer
-		letter-spacing: 1px
-		text-transform: uppercase
-		font-weight: 500
-		-moz-osx-font-smoothing: initial
-		-webkit-font-smoothing: subpixel-antialiased
-		display: block
-		color: #999999
-		font-size: 0
-		position: relative
-		z-index: 2
-		display: flex
-		-ms-flex-direction: row
-		-webkit-box-orient: horizontal
-		-webkit-box-direction: normal
-		flex-direction: row
-		align-items: flex-start
-		.likes-count
-			margin-left: 5px
+		@media only screen and (max-width: 680px)
+			border-top: 2px solid #f2f2f2
+
+		@media only screen and (max-width: 985px)
+			border: none
+		.social
+			border-right: 2px solid #f2f2f2
+			display: inline-block
+			vertical-align: top
+			padding-right: 16px
+			@media only screen and (max-width: 540px)
+				border: none
+				padding-right: 0
+
+			@media only screen and (max-width: 680px)
+				border-right: 2px solid #f2f2f2
+				padding-right: 16px
+
+			@media only screen and (max-width: 985px)
+				border: none
+				padding-right: 0
+		.comment
+			display: inline-block
+			height: 48px
+			padding-left: 13px
+			vertical-align: top
+			opacity: .3
+			transition: opacity 0.2s ease-in-out
+			cursor: pointer
+			.comment-msg
+				display: inline-block
+				color: black
+				font-weight: 500
+				-moz-osx-font-smoothing: grayscale
+				-webkit-font-smoothing: antialiased
+				vertical-align: top
+				margin: 13px 0
 
 // Details section at bottom of product card
 .details
@@ -256,3 +274,56 @@
 			list-style: none
 			display: inline-block
 
+
+
+
+
+.product-actions .actions-container 
+	width: 100%
+	bottom: 48px
+	position: absolute
+	padding-right: 10%
+	padding-left: 18%
+	box-sizing: border-box
+	display: -ms-flexbox
+	display: -webkit-box
+	display: flex
+	display: -webkit-flex
+	-ms-flex-direction: row
+	-webkit-box-orient: horizontal
+	-webkit-box-direction: normal
+	flex-direction: row
+	-ms-flex-pack: center
+	-webkit-box-pack: center
+	justify-content: center
+	@media only screen and (max-width: 680px)
+		padding-left: 10px
+		padding-right: 0
+		text-align: left
+		bottom: -15px
+	@media only screen and (max-width: 540px)
+		bottom: 0
+	
+.action-like 
+	transition: opacity 0.2s ease-in-out
+	cursor: pointer
+	letter-spacing: 1px
+	text-transform: uppercase
+	font-weight: 500
+	-moz-osx-font-smoothing: initial
+	-webkit-font-smoothing: subpixel-antialiased
+	display: block
+	color: #999999
+	font-size: 0
+	position: relative
+	z-index: 2
+	display: flex
+	-webkit-box-orient: horizontal
+	-webkit-box-direction: normal
+	flex-direction: row
+	align-items: center
+
+.action-like.action-showText 
+	padding-right: 20px
+	width: 110px
+	font-size: 15px

@@ -13,10 +13,11 @@ class Product < ApplicationRecord
   validates :price, numericality: true
   validates :image, presence: true
 
-  has_many :line_items, dependent: :destroy
+  has_one :line_item, dependent: :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
   before_save :round_price
+  belongs_to :order, optional: true
 
   paginates_per 25
 
@@ -27,12 +28,4 @@ class Product < ApplicationRecord
   def round_price
     price.round
   end
-
-  def ensure_not_referenced_by_any_line_item
-    unless line_items.empty?
-      errors.add(:base, 'Line Items present')
-      throw :abort
-    end
-  end
-
 end

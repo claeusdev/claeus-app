@@ -1,0 +1,13 @@
+= form_for @order, url: orders_path do |f|
+	.form-group
+		= f.text_field :name, placeholder: "Your full name", class: "form-input"
+	.form-group
+		= f.email_field :email, placeholder: "Your email address", class: "form-input"
+	.form-group
+		= f.text_field :phone, placeholder: "Your phone number", class: "form-input"
+	.form-group
+		= f.text_area :address, placeholder: "Your phone", class: "form-input"
+	.form-group
+		= f.number_field :quantity, value: 1, class: "form-input"
+
+	= f.submit "Checkout"

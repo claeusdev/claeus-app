@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
 	def show
 		set_store
 		set_product
+		@order = Order.new
 	end 
+
+	def buy
+		@product = Product.friendly.find(params[:product_id])
+	end
 
 	def index
 		@store = Store.friendly.find(params[:store_id])
