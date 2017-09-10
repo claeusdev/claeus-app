@@ -262,7 +262,7 @@ a.is-liked
 		display: flex
 		justify-content: space-between
 		.header-title
-			color: #525252
+			color: $claeusRed
 			display: inline
 			font-weight: 300
 			font-size: 24px
@@ -327,3 +327,18 @@ a.is-liked
 	padding-right: 20px
 	width: 110px
 	font-size: 15px
+
+.comments-container 
+	min-height: 100px
+	box-sizing: border-box
+	padding-left: 14
+	padding-right: 14
+	padding-bottom: 36px
+	transition: padding 0.2s ease-in-out
+	position: relative
+
+.comment-input-container 
+	padding-left: 76px
+	padding-bottom: 64px
+	@media only screen and (max-width: 540px)
+		padding-left: 0

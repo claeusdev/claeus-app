@@ -9,6 +9,8 @@ class Product < ApplicationRecord
 
   has_many :assets, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
   validates :name, :description, :price, presence: true
   validates :price, numericality: true
   validates :image, presence: true
@@ -21,7 +23,7 @@ class Product < ApplicationRecord
 
   paginates_per 25
 
-  before_destroy :ensure_not_referenced_by_any_line_item
+  # before_destroy :ensure_not_referenced_by_any_line_item
 
   private
 

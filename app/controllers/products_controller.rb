@@ -2,9 +2,9 @@ class ProductsController < ApplicationController
 	before_action :set_product, only: [:edit, :update, :destroy]
 	before_action :authenticate_user!, except: :show
 	def show
-		set_store
 		set_product
 		@order = Order.new
+		@comments = Comment.where(product: @product).order('created_at ASC')
 	end 
 
 	def buy

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   resources :line_items
   post 'like' => 'likes#toggle'
 
@@ -30,7 +29,9 @@ Rails.application.routes.draw do
   
   get "buy", to: "products#buy"
   resources :stores do
-    resources :products
+    resources :products do
+      resources :comments
+    end
 
     post 'follow', :to => 'followings#create'
     delete 'unfollow', :to => 'followings#destroy'
