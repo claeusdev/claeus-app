@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 			redirect_to @order
 			format.json
 		else
-			render :new { @order.errors.full_messages.to_sentence }
+			render :new
 		end
 	end
 
