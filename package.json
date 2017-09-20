@@ -4,5 +4,8 @@
   "dependencies": {
     "bootstrap": "4.0.0-beta",
     "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.8.2"
   }
 }
