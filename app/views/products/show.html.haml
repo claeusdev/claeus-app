@@ -10,15 +10,15 @@
 							- if user_signed_in?
 								%span.action-like.action-showText
 									= link_to like_path(product_id: @product.id), class: "#{'is-liked' if current_user.likes!(@product)}", method: :post do
-
-										%span.fa.fa-heart{aria: {hidden: 'true'}}
+										%span.fa.fa-heart.fa-2x{aria: {hidden: 'true'}}
 										- if @product.likes.count > 0
 											%span.showText= pluralize(@product.likes.count, "Like")
-								-# - else
-							-# 	%span.action-like.action-showText
-							-# 		%span.fa.fa-heart-o.fa-2x{aria: {hidden: 'true'}}
-							-# 		- if @product.likes.count > 0
-							-# 			%span= "Like"
+							- else
+								%span.action-like.action-showText
+									%span.fa.fa-heart.fa-2x{aria: {hidden: 'true'}}
+									- if @product.likes.count > 0
+										%span.showText= "#{@product.likes.count}"
+							%br/
 				.product-info
 					.center-vertical-outer
 						.center-vertical-inner
@@ -30,6 +30,7 @@
 									%span  by
 									= link_to @product.store.name, store_path(@product.store)
 								.show-price= number_to_currency(@product.price, unit: 'GHS')
+
 								-# .buy-now-container
 								-# 	= form_for @order, url: orders_path(product_id: @product), local: true do |f|
 								-# 		= f.number_field :quantity, value: 1, class: "form-input"

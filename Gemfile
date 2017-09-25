@@ -32,7 +32,7 @@ gem 'ancestry'
 gem 'ransack'
 gem 'kaminari'
 gem 'normalize-rails'
-gem 'webpacker', '~> 2.0'
+gem 'webpacker', '~> 3.0'
 # gem 'impressionist'
 gem "fog-aws"
 gem 'rmagick'

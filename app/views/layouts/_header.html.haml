@@ -2,11 +2,9 @@
 	.mainNav-layout.wrapper
 		.mainNav-tabs
 			= link_to "Claeus", root_path, class: 'mainNavTab', id: 'logo'
-			-# - if user_signed_in?
-			-# = link_to cart_path, class: 'mainNavTab' do
-			-# 	%span.mainNavTabIcon{ style: "background-image:  url(#{image_path 'cart.png'})"  }
-			%span.mainNavTabText
-		
+		.mobileSearchContainer
+			= form_with( url: search_path, method: :get, local: true) do |f|
+				= f.text_field :q, class: "mobileNavSearch", placeholder: "Search products and stores", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
 		.navUserSection
 			.mainNav-userSection
 				- unless current_page?root_path

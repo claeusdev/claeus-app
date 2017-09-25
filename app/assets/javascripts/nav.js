@@ -14,4 +14,10 @@ $(document).ready(function () {
       $(".userNav .menuNav").hide();
     }
   });
+
+  $(".show-search").on("click", function(){
+    $('body').addClass('showingMobileSearch');
+    $('.navUserSection').hide();
+    $('.mobileSearch').css('display', 'block');
+  });
 });
