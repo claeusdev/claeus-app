@@ -17,8 +17,11 @@
 		.section
 			.section-header Also in the Category
 			.wrapper
-				.grid
-					- @subcategories.each do |sub|
-						.col-quarter
-							.grid-tile
-								= link_to sub.name, sub, class: "tile-name"
+				.grid-container
+					.grid
+						- @subcategories.each do |sub|
+							.col-quarter
+								= link_to sub do
+									.grid-tile
+										.tile-img{ style: "background-image:  url('#{sub.avatar.url(:medium)}')"  }
+										.tile-name= sub.name

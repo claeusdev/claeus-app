@@ -14,17 +14,16 @@
 		.wrapper
 			.section-header
 				Browse by Category
-			.wrapper
-				.grid-container
-					.grid
-						- @categories.each do |cat|
-							.col-quarter
-								= link_to cat do
-									.grid-tile
-										.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
-										.tile-name= cat.name
-				%br/
-				= link_to "View all categories", categories_path
+			= link_to "View all categories", categories_path
+
+			.grid-container
+				.grid
+					- @categories.each do |cat|
+						.col-quarter
+							= link_to cat do
+								.grid-tile
+									.tile-img{ style: "background-image:  url('#{cat.avatar.url(:medium)}')"  }
+									.tile-name= cat.name
 
 	%article.white
 		.wrapper

@@ -5,14 +5,14 @@ class Store < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
   
-  belongs_to :user
-  belongs_to :category
+  belongs_to :user, dependent: :destroy
+  belongs_to :category, dependent: :destroy
 
   has_many :notifications, foreign_key: :recipient_id
-  has_many :products
-  has_many :followings
+  has_many :products, dependent: :destroy
+  has_many :followings, dependent: :destroy
   has_many :followers, through: :followings
-  has_many :orders
+  has_many :orders, dependent: :destroy
   
 
   STORE_TYPES = ["Retailer", "Wholesaler", "Manufacturer"]

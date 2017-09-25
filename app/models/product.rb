@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   mount_uploader :image, AvatarUploader
 
   belongs_to :store
-  belongs_to :subcategory
+  belongs_to :subcategory, dependent: :destroy
 
   has_many :assets, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
@@ -15,7 +15,6 @@ class Product < ApplicationRecord
   validates :price, numericality: true
   validates :image, presence: true
 
-  has_one :line_item, dependent: :destroy
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
   before_save :round_price
