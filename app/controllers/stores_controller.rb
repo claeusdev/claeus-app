@@ -26,11 +26,11 @@ class StoresController < ApplicationController
 									twitter: {
 										card: 'summary',
 										site: '@claeusgh',
-										title: @store.name,
+										title: "Check out my store, #{@store.name}",
 										description: @store.description.truncate(200)
 									},
 									og: {
-										title: @store.name,
+										title: "Check out my store, #{@store.name}",
 										description: @store.description.truncate(200),
 										type: 'website',
 										url: store_url(@store),
