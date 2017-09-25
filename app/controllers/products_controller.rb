@@ -5,6 +5,24 @@ class ProductsController < ApplicationController
 		set_product
 		@order = Order.new
 		@comments = Comment.where(product: @product).order('created_at ASC')
+		@meta_description = "#{@product.description}"
+		set_meta_tags title: @product.name,
+									site: 'Claeus',
+									reverse: true,
+									description: @product.description.truncate(200),
+									twitter: {
+										card: 'summary',
+										site: '@claeusgh',
+										title: @product.name,
+										description: @product.description.truncate(200)
+									},
+									og: {
+										title: @product.name,
+										description: @product.description.truncate(200),
+										type: 'website',
+										url: store_product_url(@product),
+										image: @product.image
+									}
 	end 
 
 	def buy

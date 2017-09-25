@@ -147,6 +147,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    meta-tags (2.6.0)
+      actionpack (>= 3.2.0, < 5.3)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -251,6 +253,8 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    sitemap_generator (5.3.1)
+      builder (~> 3.0)
     sixarm_ruby_unaccent (1.2.0)
     social-share-button (0.10.0)
       coffee-rails
@@ -319,6 +323,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   kaminari
   listen (>= 3.0.5, < 3.2)
+  meta-tags
   neat
   normalize-rails
   pg (~> 0.18)
@@ -331,6 +336,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda-matchers
   simple_form (~> 3.5)
+  sitemap_generator
   social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)

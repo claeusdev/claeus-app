@@ -38,7 +38,8 @@ gem 'webpacker', '~> 3.0'
 # gem 'impressionist'
 gem "fog-aws"
 gem 'rmagick'
-
+gem 'meta-tags'
+gem 'sitemap_generator'
 
 
 group :development, :test do
