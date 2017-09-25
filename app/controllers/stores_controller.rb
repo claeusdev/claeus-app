@@ -18,6 +18,24 @@ class StoresController < ApplicationController
 	def show
 		@store = Store.friendly.find(params[:id])
 		@products = @store.products
+		@meta_description = "#{@store.description}"
+		set_meta_tags title: @store.name,
+									site: 'Claeus',
+									reverse: true,
+									description: @store.description.truncate(200),
+									twitter: {
+										card: 'summary',
+										site: '@claeusgh',
+										title: @store.name,
+										description: @store.description.truncate(200)
+									},
+									og: {
+										title: @store.name,
+										description: @store.description.truncate(200),
+										type: 'website',
+										url: store_url(@store),
+										image: @store.image
+									}
 	end
 
 	def create
