@@ -34,7 +34,7 @@ class StoresController < ApplicationController
 										description: @store.description.truncate(200),
 										type: 'website',
 										url: store_url(@store),
-										image: @store.image
+										image: @store.avatar
 									}
 	end
 
